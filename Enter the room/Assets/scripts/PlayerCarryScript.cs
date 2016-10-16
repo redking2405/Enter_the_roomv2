@@ -17,10 +17,10 @@ public class PlayerCarryScript : MonoBehaviour {
     public bool IsCarrying = false;
     public GameObject Target;
     private bool flag = true;
-
+    private Vector3 Tartampion; 
 	// Use this for initialization
 	void Start () {
-	
+        
 	}
 	
 	// Update is called once per frame
@@ -39,10 +39,13 @@ public class PlayerCarryScript : MonoBehaviour {
         else if(Input.GetKeyUp(KeyCode.Space)&&IsCarrying)
         {
             Target.transform.parent = null;
-            Target.transform.position = ObjectDetector.transform.position;
+            Tartampion = new Vector3(ObjectDetector.transform.position.x, 0.5f, ObjectDetector.transform.position.z);
+            Target.transform.position = Tartampion;
+            
             GetComponent<TirPlayerScript>().CanShoot = true;
             IsCarrying = false;
             flag = true;
+            CanCarry = false;
             
         }
 	}

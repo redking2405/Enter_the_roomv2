@@ -46,7 +46,7 @@ public class ObjectDetectorScript : MonoBehaviour {
         {
             CanCarry = Player.GetComponent<PlayerCarryScript>();
             CanShoot = Player.GetComponent<TirPlayerScript>();
-            
+            CanCarry.CanCarry = false;
             if(!CanCarry.IsCarrying)
             {
                 CanShoot.CanShoot = true;
