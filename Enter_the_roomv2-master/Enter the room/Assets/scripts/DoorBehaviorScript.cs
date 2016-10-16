@@ -7,8 +7,6 @@ public class DoorBehaviorScript : MonoBehaviour {
 
     public bool DoorOpen = false;
 
-    public float Distance = 10.0f;
-
 	// Use this for initialization
 	void Start () {
 	
@@ -19,7 +17,7 @@ public class DoorBehaviorScript : MonoBehaviour {
 
         if (DoorOpen)
         {
-            Door.transform.Translate(Vector3.up*Distance, Space.World);
+            Destroy(Door);
         }
 	
 	}

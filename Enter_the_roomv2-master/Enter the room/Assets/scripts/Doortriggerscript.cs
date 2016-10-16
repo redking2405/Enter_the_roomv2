@@ -7,23 +7,16 @@ public class Doortriggerscript : MonoBehaviour {
 
     GameObject Door;
 
+    public GameObject DoorTrigger;
     void OnTriggerEnter(Collider Other)
     {
         if (Other.gameObject.layer == 8)
         {
             Door.GetComponent<DoorBehaviorScript>().DoorOpen = true;
+            Destroy(DoorTrigger);
 
         }
     }
-
-    void OnTriggerExit(Collider Other)
-    {
-        if (Other.gameObject.layer == 8)
-        {
-            Door.GetComponent<DoorBehaviorScript>().DoorOpen = false;
-        }
-    }
-
 
 
 	// Use this for initialization

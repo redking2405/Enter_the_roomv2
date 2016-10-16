@@ -6,6 +6,7 @@ public class CheckFinalDoorScript : MonoBehaviour {
     private int NumKeyRequired = 1;
 
     public GameObject Door;
+    public GameObject DoorTrigger;
 
     void OnTriggerEnter(Collider Other)
     {
@@ -19,6 +20,7 @@ public class CheckFinalDoorScript : MonoBehaviour {
             else if (Other.gameObject.GetComponent<PlayerKeyControlScript>().NumKey == NumKeyRequired)
             {
                 Door.GetComponent<DoorBehaviorScript>().DoorOpen = true;
+                Destroy(DoorTrigger);
             }
         }
     }
