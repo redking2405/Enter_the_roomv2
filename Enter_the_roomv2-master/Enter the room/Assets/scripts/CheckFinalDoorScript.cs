@@ -14,7 +14,7 @@ public class CheckFinalDoorScript : MonoBehaviour {
         {
             if (Other.gameObject.GetComponent<PlayerKeyControlScript>().NumKey < NumKeyRequired)
             {
-                Debug.Log("Il manque des clés");
+                //Debug.Log("Il manque des clés");
             }
 
             else if (Other.gameObject.GetComponent<PlayerKeyControlScript>().NumKey == NumKeyRequired)
