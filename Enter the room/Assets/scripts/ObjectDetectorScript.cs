@@ -5,6 +5,7 @@ public class ObjectDetectorScript : MonoBehaviour {
 
     public TirPlayerScript CanShoot;
     public PlayerCarryScript CanCarry;
+    public GameObject objectdetector;
 
 
     [SerializeField]
@@ -46,7 +47,7 @@ public class ObjectDetectorScript : MonoBehaviour {
         {
             CanCarry = Player.GetComponent<PlayerCarryScript>();
             CanShoot = Player.GetComponent<TirPlayerScript>();
-            
+            CanCarry.CanCarry = false;
             if(!CanCarry.IsCarrying)
             {
                 CanShoot.CanShoot = true;
@@ -62,6 +63,7 @@ public class ObjectDetectorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (Input.GetKey(KeyCode.X))
+           objectdetector.transform.localPosition = new Vector3(0.0f, -0.9f, 1.0f);
 	}
 }

@@ -43,6 +43,7 @@ public class PlayerCarryScript : MonoBehaviour {
             GetComponent<TirPlayerScript>().CanShoot = true;
             IsCarrying = false;
             flag = true;
+            CanCarry = false;
             
         }
 	}

@@ -28,8 +28,9 @@ public class TrapMovementScript : MonoBehaviour {
     Vector3 Direction; 
 
     private string DestinationName;
-    private float Distance = 2.5f;
-    
+    public float Distance = 4.0f;
+    public GameObject interruptor1;
+    public GameObject interruptor2;
 
     void SelectDestination(Vector3 Destination, string name)
     {
@@ -79,13 +80,15 @@ public class TrapMovementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SelectDestination(Destination.transform.position, Destination.name);
-        Direction = -Player.transform.forward;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-
-       
-	
-	}
+        Direction = -Player.transform.forward;
+        
+        if (interruptor1.GetComponent<InterruptorScript>().IsActivated && interruptor2.GetComponent<InterruptorScript>().IsActivated)
+        {
+            Trap.GetComponent<NavMeshAgent>().speed = 0;
+        }
+    }
 }

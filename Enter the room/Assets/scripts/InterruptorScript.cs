@@ -11,13 +11,19 @@ public class InterruptorScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider Other)
     {
-        if(Other.gameObject.tag == Interruptor.tag)
-        {
-            IsActivated = true;
-        }
+                IsActivated = true;
     }
-	// Use this for initialization
-	void Start () {
+
+    void OnTriggerExit(Collider Other)
+    {
+        if(Other.gameObject.layer != 8)
+        {
+            IsActivated = false;
+        }
+       
+    }
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
